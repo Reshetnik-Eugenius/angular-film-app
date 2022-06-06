@@ -1,0 +1,16 @@
+<div class="container-films__item">
+    <div class="container-films__item-image">
+        <div class="container-films__image">
+            <img [src]="film.Poster" [alt]="film.Title">
+        </div>
+    </div>
+    <div class="container-films__item-info">
+        <div class="container-films__item-info-title">{{film.Type}}</div>
+        <div class="container-films__item-info-name">{{film.Title}}</div>
+        <div class="container-films__item-info-year">{{film.Year}}</div>
+        <div class="container-films__item-info-button">
+            <button id="btnDetailsID" data-id=${film.imdbID} (click)="getMovieById('tt0318403')">Details</button>
+        </div>
+    </div>
+    <!-- <app-film-details></app-film-details> -->
+</div>
