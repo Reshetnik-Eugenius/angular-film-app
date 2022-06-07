@@ -12,18 +12,23 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./film-item.component.scss']
 })
 export class FilmItemComponent implements OnInit {
-  constructor(private filmService: FilmService, public dialog: MatDialog) { }
+  @Input() film!: IFilm; 
+  // columns we will show on the table
+  // displayedColumns = ['firstName', 'lastName'];
+  dataSource!: MatTableDataSource<IFilmDetails>;
+  
+  constructor(private filmService: FilmService, public dialog: MatDialog) {
+  //the source where we will get the data
+  this.dataSource = new MatTableDataSource<IFilmDetails>();
+   }
   // private dialog: MatDialog,
   ngOnInit(): void {
     // this.getMovieById('tt0318403');
   }
 
-  @Input() film!: IFilm; 
+  
 
-      // columns we will show on the table
-  public displayedColumns = ['firstName', 'lastName'];
-  //the source where we will get the data
-  public dataSource = new MatTableDataSource<IFilm>();
+
 
   // getMovieById(id:string): void {
   //   this.filmService.getFilmById(id)
@@ -36,16 +41,18 @@ export class FilmItemComponent implements OnInit {
   //     // console.log(film);
   // }) 
   getMovieById(id:string): void {
-    this.filmService.getFilmById(id)
-    .subscribe((res)=>{
-      console.log(res);
-      this.dataSource.data = res;
-    })
+    // this.filmService.getFilmById(id)
+    // .subscribe((res)=>{
+    //   console.log(res);
+    //   // this.dataSource.data = res;
+    //   console.log(this.dataSource.data);
+    // })
+    console.log(this.film.imdbID);
     this.openDialog();
   }
   openDialog() {
     // throw new Error('Method not implemented.');
-    console.log("asd");
+    // console.log("asd");
     this.dialog.open(ModalComponent);
   }
 }
