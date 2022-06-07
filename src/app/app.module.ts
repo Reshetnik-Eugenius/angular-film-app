@@ -22,6 +22,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FilmItemDialogComponent } from './components/film-item-dialog/film-item-dialog.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     SearchComponent,
     FilmDetailsComponent,
     ModalComponent,
+    FilmItemDialogComponent,
   ],
   // entryComponents: [ModalComponent],
   imports: [
